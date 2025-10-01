@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -87,7 +88,7 @@ fun TreeItem(
 
             Column {
                 Text(
-                    text = chileanTree.name,
+                    text = chileanTree.name.uppercase(),
                     color = Color.Black,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold

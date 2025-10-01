@@ -14,4 +14,4 @@ val TreeList = Color(0xFF62D0FF)
 
 val TreeScreenBackground = Color(0xFF4FC2A0)
 
-val TreeItem = Color(0xFFF4FF9B)
+val TreeItem = Color(0xFFF5EEEE)
