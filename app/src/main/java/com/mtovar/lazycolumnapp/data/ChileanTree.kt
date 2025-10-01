@@ -1,7 +1,8 @@
 package com.mtovar.lazycolumnapp.data
 
-data class ChileanTrees(
+data class ChileanTree(
     val id: String,
     val name: String,
     val latinName: String?,
-    val image: Int?)
+    val image: Int?
+)
