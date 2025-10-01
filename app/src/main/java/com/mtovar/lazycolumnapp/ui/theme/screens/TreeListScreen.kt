@@ -11,8 +11,8 @@ import com.mtovar.lazycolumnapp.data.ChileanTreeData
 @Composable
 fun TreeListScreen (modifier: Modifier){
 
-    Column (modifier = modifier){
-        LazyColumn(modifier = modifier) {
+    Column {
+        LazyColumn {
             items(ChileanTreeData.chileanTreeList) { tree ->
                 TreeItem(modifier, tree)
             }

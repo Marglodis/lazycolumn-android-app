@@ -40,14 +40,14 @@ fun TreeItem(
         )
 ) {
     Card(
-        modifier = modifier
-            .fillMaxSize()
+        modifier = Modifier
+            .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 4.dp),
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
         Row(
-            modifier = Modifier
-                .padding(16.dp)
+            modifier = modifier
+                .padding(8.dp)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
 
@@ -92,11 +92,6 @@ fun TreeItem(
                 chileanTree.latinName?.let { Text(text = it, color = Color.Black, fontStyle = FontStyle.Italic) }
 
             }
-
-
-
-
-
         }
     }
 }
