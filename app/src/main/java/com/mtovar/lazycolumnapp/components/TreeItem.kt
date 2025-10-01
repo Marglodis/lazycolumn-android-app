@@ -1,5 +1,6 @@
 package com.mtovar.lazycolumnapp.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,6 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -59,12 +62,22 @@ fun TreeItem(
             ) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
 
-                    Text(
-                        text = chileanTree.name.first().uppercase(),
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
-                    )
+                    if(chileanTree.image != null) {
+                        Image(
+                            painter = painterResource(id = chileanTree.image),
+                            contentDescription = chileanTree.name
+                        )
+                    }
+                    else {
+                        Text(
+                            text = chileanTree.name.first().uppercase(),
+                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+
+
                 }
             }
             Spacer(modifier = Modifier.width(16.dp))
@@ -76,11 +89,11 @@ fun TreeItem(
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
-                chileanTree.latinName?.let { Text(text = it, color = Color.Black) }
+                chileanTree.latinName?.let { Text(text = it, color = Color.Black, fontStyle = FontStyle.Italic) }
 
             }
 
-            //Image(painter = painterResource(id = chileanTree.image), contentDescription = null)
+
 
 
 
