@@ -27,8 +27,8 @@ Construir una aplicación Android que despliegue una lista de especies nativas c
 ## 🌱 Ejemplo de Datos
 
 ```kotlin
-ChileanTree("1", "Arrayán", "Luma apiculata", R.drawable.arrayan),
-ChileanTree("2", "Calafate", "Berberis microphylla", R.drawable.calafate),
+ChileanTree("1", "Arrayán", "Luma apiculata", R.drawable.arrayan)
+ChileanTree("2", "Calafate", "Berberis microphylla", R.drawable.calafate)
 ChileanTree("3", "Chilco", "Fuchsia magellanica", R.drawable.chilco)
 ```
 
