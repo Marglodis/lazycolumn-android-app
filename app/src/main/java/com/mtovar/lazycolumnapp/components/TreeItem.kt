@@ -43,11 +43,14 @@ fun TreeItem(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.onBackground,
+        ),
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
         Row(
             modifier = modifier
-                .padding(8.dp)
+                .padding(horizontal = 16.dp)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
 
@@ -55,7 +58,7 @@ fun TreeItem(
             //Avatar
             Card(
                 modifier = Modifier
-                    .size(48.dp)
+                    .size(72.dp)
                     .clip(CircleShape), colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                 )
