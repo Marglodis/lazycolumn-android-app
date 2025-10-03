@@ -16,28 +16,28 @@ object ChileanTreeData {
             name = "Calafate",
             latinName = "Berberis microphylla",
             description = "Arbusto espinoso típico de la Patagonia. Produce frutos azul oscuro comestibles y muy apreciados en mermeladas y licores. Existe una leyenda que dice que quien come calafate siempre vuelve a la Patagonia.",
-            image = null
+            image = R.drawable.calafate
         ),
         ChileanTree(
             id = "3",
             name = "Chilco",
             latinName = "Fuchsia magellanica",
             description = "Arbusto ornamental con flores colgantes rojas y violetas, muy atractivas para los colibríes. Crece en zonas húmedas del sur de Chile y Argentina.",
-            image = null
+            image = R.drawable.chilco
         ),
         ChileanTree(
             id = "4",
             name = "Coligue",
             latinName = "Chusquea culeou",
             description = "Bambú nativo de Chile y Argentina, de tallos gruesos y resistentes. Es usado tradicionalmente para construcción rústica, cercos y artesanía.",
-            image = null
+            image = R.drawable.coligue
         ),
         ChileanTree(
             id = "5",
             name = "Maqui",
             latinName = "Aristotelia chilensis",
             description = "Arbusto siempreverde cuyas bayas negras son consideradas un superalimento por su alto contenido de antioxidantes. Crece en la zona centro-sur de Chile.",
-            image = null
+            image = R.drawable.maqui
         ),
         ChileanTree(
             id = "6",
@@ -58,35 +58,35 @@ object ChileanTreeData {
             name = "Meli",
             latinName = "Amomyrtus meli",
             description = "Árbol nativo de los bosques templados del sur de Chile. De follaje denso y madera dura, es apreciado por su resistencia y valor ecológico.",
-            image = null
+            image = R.drawable.meli
         ),
         ChileanTree(
             id = "9",
             name = "Murta",
             latinName = "Ugni molinae",
             description = "Arbusto endémico de Chile, conocido por sus pequeños frutos rojos y dulces, muy utilizados en mermeladas, licores y repostería. También llamada guayabo chileno.",
-            image = null
+            image = R.drawable.murta
         ),
         ChileanTree(
             id = "10",
             name = "Nalca",
             latinName = "Gunnera tinctoria",
             description = "Planta de gran tamaño con hojas enormes, usadas tradicionalmente como plato natural en fiestas costumbristas. Sus tallos carnosos se consumen frescos con sal.",
-            image = null
+            image = R.drawable.nalca
         ),
         ChileanTree(
             id = "11",
             name = "Quila",
             latinName = "Chusquea quila",
             description = "Bambú nativo que crece en forma de matorrales densos en zonas húmedas. Sus tallos son más delgados que el coligue y forman parte esencial de los bosques valdivianos.",
-            image = null
+            image = R.drawable.quila
         ),
         ChileanTree(
             id = "12",
             name = "Sauco",
             latinName = "Sambucus nigra",
             description = "Arbusto de rápido crecimiento, muy común en el sur de Chile. Sus flores blancas y frutos negros se utilizan en preparaciones medicinales y culinarias.",
-            image = null
+            image = R.drawable.sauco
         ),
         ChileanTree(
             id = "13",

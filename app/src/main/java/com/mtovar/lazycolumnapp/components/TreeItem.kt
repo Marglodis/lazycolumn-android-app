@@ -1,6 +1,7 @@
 package com.mtovar.lazycolumnapp.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,16 +35,20 @@ fun TreeItem(
     modifier: Modifier = Modifier,
     chileanTree: ChileanTree =
         ChileanTree(
-            "1",
-            "Testing Tree",
-            "Testing Latin Name",
-            3
-        )
+            id="1",
+            name ="Testing Tree",
+            latinName="Testing Latin Name",
+            image = 3,
+            description = null
+        ),
+    onClick: () -> Unit = {}
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
+            .padding(horizontal = 16.dp, vertical = 4.dp)
+            .clickable { onClick() },
+
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.onBackground,
         ),
