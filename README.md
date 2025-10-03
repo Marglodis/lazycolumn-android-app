@@ -38,7 +38,7 @@ ChileanTree("3", "Chilco", "Fuchsia magellanica", R.drawable.chilco)
 
 ## 📱 Capturas de Pantalla
 <p float="left">
-  <img src="screenshots/tree_list.png.png" alt="Lista de árboles" width="200"/>
-  <img src="screenshots/tree_detail.png.png.png" alt="Detalle de árbol" width="200"/>
+  <img src="screenshots/tree_list.png" alt="Lista de árboles" width="200"/>
+  <img src="screenshots/tree_detail.png" alt="Detalle de árbol" width="200"/>
 </p>
 
