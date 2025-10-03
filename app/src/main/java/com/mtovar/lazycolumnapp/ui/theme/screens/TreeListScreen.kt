@@ -42,16 +42,9 @@ fun TreeListScreen(
         topBar = {
             TopAppBar(
                 title = { Text("Árboles Navitos de Chile") },
-                /*navigationIcon = {
-                    IconButton(onClick = onNavigateBack) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_launcher_foreground),
-                            contentDescription = "Back"
-                        )
-                    }
-                },*/
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = ForestGreen
+                    containerColor = ForestGreen,
+                    titleContentColor = CreamWhite
                 )
             )
         },

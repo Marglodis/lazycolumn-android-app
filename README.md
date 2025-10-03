@@ -15,6 +15,7 @@ Construir una aplicación Android que despliegue una lista de especies nativas c
     - Nombre común en **negrita**.
 - ✅ Se desarrolló la pantalla principal **`TreeListScreen`**, donde se renderiza la lista completa mediante **LazyColumn**, optimizando el rendimiento y permitiendo desplazamiento fluido.
 - ✅ Las especies fueron ordenadas **alfabéticamente** para mejorar la visualización.
+- ✅ Se implementó el **navigation** entre pantallas.
 
 
 ## 📂 Estructura del Proyecto
@@ -23,6 +24,9 @@ Construir una aplicación Android que despliegue una lista de especies nativas c
 - **`data/ChileanTreeData.kt`** → Fuente de datos con especies nativas chilenas.
 - **`components/TreeItem.kt`** → Composable que representa cada ítem de la lista con imagen, nombre y nombre científico.
 - **`ui/theme/screens/TreeListScreen.kt`** → Pantalla principal con la LazyColumn que consume los datos.
+- **`navigation/NavigationWrapper.kt`** → Controlador de navegación entre pantallas.
+- **`MainActivity.kt`** → Punto de entrada de la aplicación.
+
 
 ## 🌱 Ejemplo de Datos
 
@@ -34,6 +38,7 @@ ChileanTree("3", "Chilco", "Fuchsia magellanica", R.drawable.chilco)
 
 ## 📱 Capturas de Pantalla
 <p float="left">
-  <img src="screenshots/Screenshot_19.png" alt="Lista de árboles" width="200"/>
+  <img src="screenshots/tree_list.png.png" alt="Lista de árboles" width="200"/>
+  <img src="screenshots/tree_detail.png.png.png" alt="Detalle de árbol" width="200"/>
 </p>
 

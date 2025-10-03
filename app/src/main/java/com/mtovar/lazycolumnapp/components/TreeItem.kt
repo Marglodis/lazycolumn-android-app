@@ -67,7 +67,7 @@ fun TreeItem(
     ) {
         Row(
             modifier = modifier
-                .padding(horizontal = 16.dp)
+                .padding(24.dp)
                 .fillMaxWidth()
                 .background(
                     Brush.horizontalGradient(

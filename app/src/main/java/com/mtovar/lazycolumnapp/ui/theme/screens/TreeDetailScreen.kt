@@ -2,6 +2,7 @@ package com.mtovar.lazycolumnapp.ui.theme.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -37,6 +38,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.mtovar.lazycolumnapp.R
 import com.mtovar.lazycolumnapp.data.ChileanTreeData
 
@@ -68,7 +70,7 @@ fun TreeDetailScreen(modifier: Modifier, treeId: String, onNavigateBack: () -> U
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                            painter = painterResource(id = R.drawable.ic_arrrow_back),
                             contentDescription = "Volver",
                             tint = CreamWhite
                         )
@@ -148,56 +150,45 @@ fun TreeDetailScreen(modifier: Modifier, treeId: String, onNavigateBack: () -> U
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(24.dp),
-                horizontalAlignment = Alignment.Start
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                // Nombre
+
+                    Text(
+                        text = tree.name,
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 32.sp,
+                        color = DeepGreen,
+                        modifier = Modifier.padding(16.dp)
+                    )
+
                 // Nombre científico
                 tree.latinName?.let {
-                    Card(
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(12.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = LightGreen.copy(alpha = 0.3f)
-                        )
-                    ) {
+
                         Text(
                             text = it,
                             style = MaterialTheme.typography.titleLarge,
                             fontStyle = FontStyle.Italic,
-                            fontWeight = FontWeight.Medium,
+                            fontWeight = FontWeight.Normal,
                             color = DeepGreen,
-                            modifier = Modifier.padding(16.dp)
                         )
-                    }
+
                 }
 
                 Spacer(modifier = Modifier.height(24.dp))
 
                 // Descripción
                 tree.description?.let {
-                    Text(
-                        text = "Descripción",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold,
-                        color = ForestGreen,
-                        modifier = Modifier.padding(bottom = 8.dp)
-                    )
 
-                    Card(
-                        modifier = Modifier.fillMaxWidth(),
-                        shape = RoundedCornerShape(16.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = Color.White
-                        ),
-                        elevation = CardDefaults.cardElevation(2.dp)
-                    ) {
                         Text(
                             text = it,
                             style = MaterialTheme.typography.bodyLarge,
                             color = Color(0xFF2D3436),
-                            lineHeight = MaterialTheme.typography.bodyLarge.lineHeight.times(1.5f),
+                            lineHeight = MaterialTheme.typography.bodyLarge.lineHeight.times(1.2f),
                             modifier = Modifier.padding(20.dp)
                         )
-                    }
+
                 }
 
                 Spacer(modifier = Modifier.height(24.dp))
