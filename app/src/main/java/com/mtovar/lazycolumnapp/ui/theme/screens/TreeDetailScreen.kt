@@ -1,14 +1,20 @@
 package com.mtovar.lazycolumnapp.ui.theme.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,86 +28,180 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.mtovar.lazycolumnapp.R
 import com.mtovar.lazycolumnapp.data.ChileanTreeData
 
+// Paleta de colores inspirada en la naturaleza
+val ForestGreen = Color(0xFF2D5016)
+val SageGreen = Color(0xFF87A96B)
+val LightGreen = Color(0xFFB8C5A8)
+val CreamWhite = Color(0xFFFAF8F3)
+val EarthBrown = Color(0xFF8B7355)
+val DeepGreen = Color(0xFF1B3409)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TreeDetailScreen(modifier: Modifier, treeId: String, onNavigateBack: () -> Unit){
+fun TreeDetailScreen(modifier: Modifier, treeId: String, onNavigateBack: () -> Unit) {
 
-        val tree = ChileanTreeData.chileanTreeList.find { it.id == treeId }
-            ?: return // o mostrar error
+    val tree = ChileanTreeData.chileanTreeList.find { it.id == treeId }
+        ?: return
 
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    title = { Text(tree.name) },
-                    navigationIcon = {
-                        IconButton(onClick = onNavigateBack) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.ic_launcher_foreground),
-                                contentDescription = "Volver"
-                            )
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = tree.name,
+                        fontWeight = FontWeight.Bold,
+                        color = CreamWhite
                     )
+                },
+                navigationIcon = {
+                    IconButton(onClick = onNavigateBack) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                            contentDescription = "Volver",
+                            tint = CreamWhite
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = ForestGreen
                 )
-            }
-        ) { innerPadding ->
-            Column(
+            )
+        },
+        containerColor = CreamWhite
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            // Header con gradiente
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(innerPadding)
-                    .verticalScroll(rememberScrollState())
-                    .padding(16.dp)
+                    .height(280.dp)
+                    .background(
+                        Brush.verticalGradient(
+                            colors = listOf(ForestGreen, SageGreen)
+                        )
+                    ),
+                contentAlignment = Alignment.Center
             ) {
-                if (tree.image != null) {
-                    Image(
-                        painter = painterResource(id = tree.image),
-                        contentDescription = tree.name,
-                        modifier = Modifier.fillMaxWidth()
+                Card(
+                    modifier = Modifier
+                        .size(200.dp)
+                        .shadow(12.dp, CircleShape),
+                    shape = CircleShape,
+                    colors = CardDefaults.cardColors(
+                        containerColor = CreamWhite
                     )
-                } else {
-                    Card(
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
+                ) {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
                     ) {
-                        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                            Text(
-                                text = tree.name.first().uppercase(),
-                                style = MaterialTheme.typography.displayLarge,
-                                color = MaterialTheme.colorScheme.primary
+                        if (tree.image != null) {
+                            Image(
+                                painter = painterResource(id = tree.image),
+                                contentDescription = tree.name,
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
                             )
+                        } else {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .background(
+                                        Brush.radialGradient(
+                                            colors = listOf(LightGreen, SageGreen)
+                                        )
+                                    ),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = tree.name.first().uppercase(),
+                                    style = MaterialTheme.typography.displayLarge,
+                                    color = ForestGreen,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
                         }
                     }
                 }
+            }
 
-                Spacer(modifier = Modifier.padding(8.dp))
-
+            // Contenido principal
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(24.dp),
+                horizontalAlignment = Alignment.Start
+            ) {
+                // Nombre científico
                 tree.latinName?.let {
-                    Text(
-                        text = it,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontStyle = FontStyle.Italic,
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(12.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = LightGreen.copy(alpha = 0.3f)
+                        )
+                    ) {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.titleLarge,
+                            fontStyle = FontStyle.Italic,
+                            fontWeight = FontWeight.Medium,
+                            color = DeepGreen,
+                            modifier = Modifier.padding(16.dp)
+                        )
+                    }
                 }
 
-                Spacer(modifier = Modifier.padding(8.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
+                // Descripción
                 tree.description?.let {
                     Text(
-                        text = it,
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onSurface
+                        text = "Descripción",
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = ForestGreen,
+                        modifier = Modifier.padding(bottom = 8.dp)
                     )
+
+                    Card(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(16.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color.White
+                        ),
+                        elevation = CardDefaults.cardElevation(2.dp)
+                    ) {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = Color(0xFF2D3436),
+                            lineHeight = MaterialTheme.typography.bodyLarge.lineHeight.times(1.5f),
+                            modifier = Modifier.padding(20.dp)
+                        )
+                    }
                 }
+
+                Spacer(modifier = Modifier.height(24.dp))
             }
         }
+    }
 }

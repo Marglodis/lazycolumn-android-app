@@ -17,7 +17,6 @@ fun NavigationWrapper() {
         composable<TreeList> {
             TreeListScreen(
                 modifier = Modifier,
-                onNavigateBack = { navController.popBackStack() },
                 onNavigateToDetail = { treeId -> navController.navigate(TreeDetail(treeId)) }
             )
         }
